@@ -1,20 +1,68 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
+  <link rel="stylesheet" href="lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="css/common.css">
 </head>
+
 <body>
 
-  首页
 
-<script>
+  <!-- 左边的侧边栏 -->
+  <div class="lt_aside">
+    <div class="brand">
+      <a href="index.html">全栈1期</a>
+    </div>
+    <div class="user">
+      <img src="./images/01.gif" alt="">
+      <p class="user_info">超级管理员</p>
+    </div>
+    <div class="nav">
+      <ul>
+        <li>
+          <a href="user.html" class="now">
+            <span class="glyphicon glyphicon-user"></span>
+            用户管理
+          </a>
+        </li>
+        <li>
+          <a href="javascript:;">
+            <span class="glyphicon glyphicon-list"></span>
+            分类管理
+          </a>
+          <div class="child" style="display: none;">
+            <a href="first.html">一级分类</a>
+            <a href="second.html">二级分类</a>
+          </div>
+        </li>
+        <li>
+          <a href="product.html">
+            <span class="glyphicon glyphicon-tags"></span>
+            商品管理
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 主体区域 -->
+  <div class="lt_main">
+
+  </div>
 
 
-
-
-
-</script>
+  <script src="lib/jquery/jquery.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.js"></script>
+  <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+  <script src="lib/nprogress/nprogress.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/index.js"></script>
 
 </body>
+
 </html>
