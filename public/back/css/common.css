@@ -23,8 +23,19 @@ a:active {
 .mt_150 {
   margin-top: 150px;
 }
+/* ------------------------- S 公用样式开始 ------------------------- */
 .panel h4 {
   text-align: center;
+}
+.table.table-bordered td,
+.table.table-bordered th {
+  text-align: center;
+  vertical-align: middle;
+}
+/* ------------------------- E 公用样式结束 ------------------------- */
+/* 模态框 */
+#logoutModal .modal-body p {
+  color: #A94442;
 }
 /* ------------------------- S 侧边栏开始 ------------------------- */
 /* 侧边栏 */
@@ -86,10 +97,6 @@ a:active {
   padding-left: 60px;
 }
 /* ------------------------- E 侧边栏结束 ------------------------- */
-/* 模态框 */
-#logoutModal .modal-body p {
-  color: #A94442;
-}
 /* ------------------------- S 主体区域开始 ------------------------- */
 .lt_main {
   height: 100%;
