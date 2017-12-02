@@ -27,14 +27,25 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .panel h4 {
-  text-align: center;
+  text-align: center
 }
+
+
+/* ------------------------- S 侧边栏开始 ------------------------- */
 
 /* 侧边栏 */
 .lt_aside {
   width: 180px;
   height: 100%;
   background-color: #222d32;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 1s;
+
+  &.now {
+    left: -180px;
+  }
 
   // 侧边栏头部
   .brand {
@@ -98,4 +109,49 @@ a:link, a:visited, a:hover, a:active {
 }
 
 
+/* ------------------------- E 侧边栏结束 ------------------------- */
 
+
+/* 模态框 */
+#logoutModal .modal-body p {
+  color: #A94442;
+}
+
+
+
+/* ------------------------- S 主体区域开始 ------------------------- */
+.lt_main {
+  height: 100%;
+  width: 100%;
+  // background-color: pink;
+  padding-left: 180px;
+  transition: all 1s;
+
+  &.now {
+    padding-left: 0;
+  }
+
+  .lt_topbar {
+    height: 50px;
+    width: 100%;
+    background-color: #3C8CBB;
+    margin-bottom: 20px;
+
+    a {
+      font-size: 18px;
+      color: #fff;
+      line-height: 50px;
+      padding: 0 20px;
+    }
+  }
+}
+
+
+/* 报表 */
+.pic_left,
+.pic_right {
+  width: 45%;
+  height: 400px;
+}
+
+/* ------------------------- E 主体区域结束 ------------------------- */
