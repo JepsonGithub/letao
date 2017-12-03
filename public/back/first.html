@@ -12,76 +12,135 @@
 
 <body>
 
-  <!-- 左边的侧边栏 -->
-  <div class="lt_aside">
-    <div class="brand">
-      <a href="index.html">全栈1期</a>
-    </div>
-    <div class="user">
-      <img src="./images/01.gif" alt="">
-      <p class="user_info">超级管理员</p>
-    </div>
-    <div class="nav">
-      <ul>
-        <li>
-          <a href="user.html">
-            <span class="glyphicon glyphicon-user"></span>
-            用户管理
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;" class="classify">
-            <span class="glyphicon glyphicon-list"></span>
-            分类管理
-          </a>
-          <div class="child">
-            <a href="first.html" class="now">一级分类</a>
-            <a href="second.html">二级分类</a>
-          </div>
-        </li>
-        <li>
-          <a href="product.html">
-            <span class="glyphicon glyphicon-tags"></span>
-            商品管理
-          </a>
-        </li>
-      </ul>
+<!-- 左边的侧边栏 -->
+<div class="lt_aside">
+  <div class="brand">
+    <a href="index.html">全栈1期</a>
+  </div>
+  <div class="user">
+    <img src="./images/01.gif" alt="">
+    <p class="user_info">超级管理员</p>
+  </div>
+  <div class="nav">
+    <ul>
+      <li>
+        <a href="user.html">
+          <span class="glyphicon glyphicon-user"></span>
+          用户管理
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;" class="classify">
+          <span class="glyphicon glyphicon-list"></span>
+          分类管理
+        </a>
+        <div class="child">
+          <a href="first.html" class="now">一级分类</a>
+          <a href="second.html">二级分类</a>
+        </div>
+      </li>
+      <li>
+        <a href="product.html">
+          <span class="glyphicon glyphicon-tags"></span>
+          商品管理
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- 主体区域 -->
+<div class="lt_main">
+  
+  <!-- topbar顶部 -->
+  <div class="m_topbar"></div>
+  
+  <div class="container-fluid">
+    <!-- 面包屑导航 -->
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">管理系统</a>
+      </li>
+      <li class="active">分类管理</li>
+      <li class="active">一级分类</li>
+    </ol>
+    
+    <!-- 内容区域 -->
+    <div class="lt_content">
+      <!-- 添加分类 -->
+      <button class="btn btn-default btn_add mb_20" id="btn_add">添加分类</button>
+      
+      <!-- 分类表格 -->
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th width="20%">序号</th>
+          <th width="80%">分类名称</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+      
+      <!-- 分页 -->
+      <div class="text-right">
+        <ul id="paginator"></ul>
+      </div>
+    
     </div>
   </div>
+</div>
 
-  <!-- 主体区域 -->
-  <div class="lt_main">
+<!-- Modal -->
+<!-- role aria-labelledby 给盲人阅读器使用 -->
+<!-- data-dismiss="modal" 点击关闭当前弹窗 -->
+<div class="m_logoutModal"></div>
 
-    <!-- topbar顶部 -->
-    <div class="m_topbar"></div>
 
-    <div class="container-fluid">
-      <!-- 面包屑导航 -->
-      <ol class="breadcrumb">
-        <li>
-          <a href="index.html">管理系统</a>
-        </li>
-        <li class="active">一级分类</li>
-      </ol>
-
-      <!-- 内容区域 -->
-      <div class="lt_content">
-
+<!-- 退出登陆模态框 -->
+<div class="modal fade" id="addTypeModal" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+        <h4 class="modal-title">添加分类</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form">
+          <div class="form-group">
+            <input type="text" class="form-control" name="categoryName" placeholder="请输入一级分类名称">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" form="form" class="btn btn-primary btn_add_first">添加</button>
       </div>
     </div>
   </div>
-
-  <!-- Modal -->
-  <!-- role aria-labelledby 给盲人阅读器使用 -->
-  <!-- data-dismiss="modal" 点击关闭当前弹窗 -->
-  <div class="m_logoutModal"></div>
+</div>
 
 
-  <script src="lib/jquery/jquery.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.js"></script>
-  <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
-  <script src="lib/nprogress/nprogress.js"></script>
-  <script src="js/common.js"></script>
+<script type="text/html" id="typeFirstTpl">
+  {{ each rows v i }}
+    <tr>
+      <td>{{ size * (page-1) + (i+1) }}</td>
+      <td>{{ v.categoryName }}</td>
+    </tr>
+  {{ /each }}
+</script>
+
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/common.js"></script>
+<script src="js/first.js"></script>
 </body>
 
 </html>

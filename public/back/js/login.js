@@ -60,6 +60,9 @@ $(function() {
     }
   });
   
+  
+
+  
   // 需要给表单注册一个校验成功的事件 success.form.bv
   $form.on("success.form.bv", function( e ) {
     // 阻止浏览器默认行为
