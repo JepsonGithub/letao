@@ -25,7 +25,7 @@
   $(function () {
     // http 是无状态的协议
     // 给退出按钮注册退出事件
-    $('.btn_logout').on("click", function () {
+    $('#logoutModal .btn_logout').on("click", function () {
       // 发送 ajax 请求, 要退出系统
       $.get('/employee/employeeLogout', function (data) {
         if (data.success) {
