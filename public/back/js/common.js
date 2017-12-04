@@ -20,17 +20,33 @@ $(document).ajaxStop(function () {
   }, 500);
 });
 
-// 加载顶部topbar
-$('.m_topbar').load('m_topbar.html');
+// 退出功能
+// 弹出退出提示框
+$('.icon_logout').on('click', function () {
+  $('#logoutModal').modal();
+});
 
-// 加载退出模态框
-$('.m_logoutModal').load('m_logoutModal.html');
+// 侧边栏显示隐藏功能
+$('.icon_menu').on("click", function () {
+  $('.lt_aside').toggleClass("now");
+  $('.lt_main').toggleClass("now");
+});
+
+// http 是无状态的协议
+// 给退出按钮注册退出事件
+$('#logoutModal .btn_logout').on("click", function () {
+  // 发送 ajax 请求, 要退出系统
+  $.get('/employee/employeeLogout', function (data) {
+    if (data.success) {
+      location.href = "login.html";
+    }
+  })
+});
 
 // 二级分类, 显示隐藏功能
 $('.lt_aside .classify').on("click", function () {
   $(this).next().stop().slideToggle();
 });
-
 
 // 非登陆的每个页面都需要判断当前用户是否是登陆, 如果登陆了, 就继续, 
 // 如果没登陆, 就需要跳转到登陆页

@@ -46,10 +46,11 @@ a:active {
   width: 180px;
   height: 100%;
   background-color: #222d32;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   transition: all 1s;
+  z-index: 999;
 }
 .lt_aside.now {
   left: -180px;
@@ -105,16 +106,25 @@ a:active {
   height: 100%;
   width: 100%;
   padding-left: 180px;
+  padding-top: 70px;
   transition: all 1s;
 }
 .lt_main.now {
   padding-left: 0;
 }
+.lt_main.now .lt_topbar {
+  padding-left: 0px;
+}
 .lt_main .lt_topbar {
   height: 50px;
   width: 100%;
   background-color: #3C8CBB;
-  margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-left: 180px;
+  z-index: 998;
+  transition: all 1s;
 }
 .lt_main .lt_topbar a {
   font-size: 18px;
@@ -127,5 +137,12 @@ a:active {
 .pic_right {
   width: 45%;
   height: 400px;
+}
+.uploadImg img {
+  display: block;
+  margin-top: 10px;
+}
+.uploadImg input[type='file'] {
+  display: none;
 }
 /* ------------------------- E 主体区域结束 ------------------------- */

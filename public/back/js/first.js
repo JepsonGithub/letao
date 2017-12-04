@@ -5,7 +5,7 @@
 $(function() {
   // 去后台获取 1 级分类的数据
   var currentPage = 1;
-  var pageSize = 2;
+  var pageSize = 5;
   
   render();
   

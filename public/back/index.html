@@ -51,9 +51,17 @@
 
   <!-- 主体区域 -->
   <div class="lt_main">
-
+  
     <!-- topbar顶部 -->
-    <div class="m_topbar"></div>
+    <div class="lt_topbar">
+      <!-- topbar -->
+      <a href="javascript:;" class="pull-left icon_menu">
+        <span class="glyphicon glyphicon-align-justify"></span>
+      </a>
+      <a href="javascript:;" class="pull-right icon_logout">
+        <span class="glyphicon glyphicon-log-out"></span>
+      </a>
+    </div>
 
     <div class="container-fluid">
       <!-- 面包屑导航 -->
@@ -75,7 +83,29 @@
   <!-- Modal -->
   <!-- role aria-labelledby 给盲人阅读器使用 -->
   <!-- data-dismiss="modal" 点击关闭当前弹窗 -->
-  <div class="m_logoutModal"></div>
+  <!-- 退出登陆模态框 -->
+  <div class="modal fade" id="logoutModal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+          <h4 class="modal-title">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+            <span class="glyphicon glyphicon-info-sign"></span>
+            你确定要退出管理系统么?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary btn_logout">退出</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <script src="lib/jquery/jquery.js"></script>

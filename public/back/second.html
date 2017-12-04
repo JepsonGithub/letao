@@ -12,77 +12,202 @@
 
 <body>
 
-  <!-- 左边的侧边栏 -->
-  <div class="lt_aside">
-    <div class="brand">
-      <a href="index.html">全栈1期</a>
-    </div>
-    <div class="user">
-      <img src="./images/01.gif" alt="">
-      <p class="user_info">超级管理员</p>
-    </div>
-    <div class="nav">
-      <ul>
-        <li>
-          <a href="user.html">
-            <span class="glyphicon glyphicon-user"></span>
-            用户管理
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;" class="classify">
-            <span class="glyphicon glyphicon-list"></span>
-            分类管理
-          </a>
-          <div class="child">
-            <a href="first.html">一级分类</a>
-            <a href="second.html" class="now">二级分类</a>
-          </div>
-        </li>
-        <li>
-          <a href="product.html">
-            <span class="glyphicon glyphicon-tags"></span>
-            商品管理
-          </a>
-        </li>
-      </ul>
-    </div>
+<!-- 左边的侧边栏 -->
+<div class="lt_aside">
+  <div class="brand">
+    <a href="index.html">全栈1期</a>
   </div>
+  <div class="user">
+    <img src="./images/01.gif" alt="">
+    <p class="user_info">超级管理员</p>
+  </div>
+  <div class="nav">
+    <ul>
+      <li>
+        <a href="user.html">
+          <span class="glyphicon glyphicon-user"></span>
+          用户管理
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;" class="classify">
+          <span class="glyphicon glyphicon-list"></span>
+          分类管理
+        </a>
+        <div class="child">
+          <a href="first.html">一级分类</a>
+          <a href="second.html" class="now">二级分类</a>
+        </div>
+      </li>
+      <li>
+        <a href="product.html">
+          <span class="glyphicon glyphicon-tags"></span>
+          商品管理
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
 
-  <!-- 主体区域 -->
-  <div class="lt_main">
-
-    <!-- topbar顶部 -->
-    <div class="m_topbar"></div>
-
-    <div class="container-fluid">
-      <!-- 面包屑导航 -->
-      <ol class="breadcrumb">
-        <li>
-          <a href="index.html">管理系统</a>
-        </li>
-        <li class="active">分类管理</li>
-        <li class="active">二级分类</li>
-      </ol>
-
-      <!-- 内容区域 -->
-      <div class="lt_content">
-
+<!-- 主体区域 -->
+<div class="lt_main">
+  
+  <!-- topbar顶部 -->
+  <div class="lt_topbar">
+    <!-- topbar -->
+    <a href="javascript:;" class="pull-left icon_menu">
+      <span class="glyphicon glyphicon-align-justify"></span>
+    </a>
+    <a href="javascript:;" class="pull-right icon_logout">
+      <span class="glyphicon glyphicon-log-out"></span>
+    </a>
+  </div>
+  
+  <div class="container-fluid">
+    <!-- 面包屑导航 -->
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">管理系统</a>
+      </li>
+      <li class="active">分类管理</li>
+      <li class="active">二级分类</li>
+    </ol>
+    
+    <!-- 内容区域 -->
+    <div class="lt_content">
+      <!-- 添加分类 -->
+      <button class="btn btn-default btn_add mb_20" id="btn_add">添加分类</button>
+      
+      <!-- 分类表格 -->
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th width="10%">序号</th>
+          <th width="30%">一级分类名称</th>
+          <th width="30%">二级分类名称</th>
+          <th width="30%">二级分类LOGO</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr>-->
+          <!--<td>1</td>-->
+          <!--<td>运动鞋子</td>-->
+          <!--<td>阿迪达斯</td>-->
+          <!--<td><img src="./images/01.gif" height="50" alt=""></td>-->
+        <!--</tr>-->
+        </tbody>
+      </table>
+      
+      <!-- 分页 -->
+      <div class="text-right">
+        <ul id="paginator"></ul>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Modal -->
-  <!-- role aria-labelledby 给盲人阅读器使用 -->
-  <!-- data-dismiss="modal" 点击关闭当前弹窗 -->
-  <div class="m_logoutModal"></div>
+<!-- Modal -->
+<!-- role aria-labelledby 给盲人阅读器使用 -->
+<!-- data-dismiss="modal" 点击关闭当前弹窗 -->
+<!-- 退出登陆模态框 -->
+<div class="modal fade" id="logoutModal" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          <span class="glyphicon glyphicon-info-sign"></span>
+          你确定要退出管理系统么?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary btn_logout">退出</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 二级分类添加模态框 -->
+<div class="modal fade" id="addTypeModal" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+        <h4 class="modal-title">添加分类</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form">
+          <div class="form-group">
+            <div class="dropdown">
+              一级分类：
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                <span class="dropdown-text">请选择</span>
+                <span class="caret"></span>
+              </button>
+              <input type="hidden" name="categoryId">
+              <ul class="dropdown-menu">
+                <!--<li><a href="#">运动鞋</a></li>-->
+              </ul>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类名称">
+          </div>
+          <div class="form-group">
+            <div class="uploadImg">
+              <input type="file" id="fileUpload" name="pic1" data-url="/category/addSecondCategoryPic">
+              <input type="button" value="上传图片" class="btn btn-default" id="bt_fileUpload">
+              <img style="display: block" src="images/none.png" height="100" alt="" id="img_box">
+              <input type="hidden" name="brandLogo" id="brandLogo">
+              <input type="hidden" name="hot" value="1">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" form="form" class="btn btn-primary btn_add_first">添加</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/html" id="tpl">
+  {{ each rows v i }}
+    <tr>
+      <td>{{ size * (page-1) + (i+1) }}</td>
+      <td>{{ v.categoryName }}</td>
+      <td>{{ v.brandName }}</td>
+      <td><img src="{{ v.brandLogo }}" height="50"></td>
+    </tr>
+  {{ /each }}
+</script>
+
+<script type="text/html" id="firstTpl">
+  {{ each rows v i }}
+    <li><a data-id="{{ v.id }}" href="#">{{ v.categoryName }}</a></li>
+  {{ /each }}
+</script>
 
 
-  <script src="lib/jquery/jquery.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.js"></script>
-  <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
-  <script src="lib/nprogress/nprogress.js"></script>
-  <script src="js/common.js"></script>
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
+<script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/common.js"></script>
+<script src="js/second.js"></script>
 </body>
 
 </html>
