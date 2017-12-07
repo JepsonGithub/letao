@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.lt_nav {
+  padding: 10px;
+}
+.lt_nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.lt_nav ul li {
+  width: 33%;
+}
+.lt_nav ul li a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

@@ -34,7 +34,7 @@
           <span class="glyphicon glyphicon-list"></span>
           分类管理
         </a>
-        <div class="child" style="display: none;">
+        <div class="child">
           <a href="first.html">一级分类</a>
           <a href="second.html">二级分类</a>
         </div>
@@ -91,18 +91,18 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>1</td>
-          <td>【莹恋】MIZUNO美津浓V1GA159002乒乓球鞋男鞋女鞋室内综合训练鞋</td>
-          <td>描述123123	</td>
-          <td>44</td>
-          <td>35-56</td>
-          <td>已上架</td>
-          <td>
-            <button class="btn btn-danger btn-sm">下架</button>
-            <button class="btn btn-primary btn-sm">编辑</button>
-          </td>
-        </tr>
+        <!--<tr>-->
+          <!--<td>1</td>-->
+          <!--<td>【莹恋】MIZUNO美津浓V1GA159002乒乓球鞋男鞋女鞋室内综合训练鞋</td>-->
+          <!--<td>描述123123	</td>-->
+          <!--<td>44</td>-->
+          <!--<td>35-56</td>-->
+          <!--<td>已上架</td>-->
+          <!--<td>-->
+            <!--<button class="btn btn-danger btn-sm">下架</button>-->
+            <!--<button class="btn btn-primary btn-sm">编辑</button>-->
+          <!--</td>-->
+        <!--</tr>-->
         </tbody>
       </table>
       
@@ -110,6 +110,7 @@
       <div class="text-right">
         <ul id="paginator"></ul>
       </div>
+      
     </div>
   </div>
 </div>
@@ -141,6 +142,117 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="addProductModal" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ><span>&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">添加商品</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form">
+          <!-- 下拉菜单 -->
+          <div class="form-group">
+            二级分类 :
+            <!-- Single button -->
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+                <span class="dropdown-text">请选择</span>
+                <!-- 小箭头 -->
+                <span class="caret"></span>
+              </button>
+      
+              <ul class="dropdown-menu">
+                <!--<li><a href="#">Action</a></li>-->
+              </ul>
+            </div>
+  
+            <input type="hidden" name="brandId">
+          </div>
+          <!-- 商品名称 -->
+          <div class="form-group">
+            <input type="text" class="form-control" name="proName" placeholder="请输入商品名称">
+          </div>
+          <!-- 商品描述 -->
+          <div class="form-group">
+            <textarea class="form-control" rows="3" placeholder="请输入商品描述" name="proDesc"></textarea>
+          </div>
+          <!-- 商品库存 -->
+          <div class="form-group">
+            <input type="text" class="form-control" name="num" placeholder="请输入商品库存">
+          </div>
+          <!-- 商品尺码 -->
+          <div class="form-group">
+            <input type="text" class="form-control" name="size" placeholder="请输入商品尺码(32-46)">
+          </div>
+          <!-- 商品原价 -->
+          <div class="form-group">
+            <input type="text" class="form-control" name="oldPrice" placeholder="请输入商品原价">
+          </div>
+          <!-- 商品价格 -->
+          <div class="form-group">
+            <input type="text" class="form-control" name="price" placeholder="请输入商品价格">
+          </div>
+  
+          <!-- 图片上传 -->
+          <div class="form-group">
+    
+            <div class="uploadImg mb_20">
+              <input type="file" id="fileUpload" name="pic1" data-url="/product/addProductPic" multiple>
+              <input type="button" value="上传图片" class="btn btn-default" id="bt_fileUpload">
+            </div>
+    
+            <div class="imgBox" >
+              <!--<img src="images/none.png" height="100" alt="">-->
+              <!--<img src="images/none.png" height="100" alt="">-->
+              <!--<img src="images/none.png" height="100" alt="">-->
+              <input type="hidden" name="productLogo" id="productLogo">
+              <input type="hidden" name="statu" value="1">
+            </div>
+  
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" form="form" class="btn btn-primary" id="btn_product_add">添加</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/html" id="secondTypeTpl">
+  {{ each rows v i }}
+    <li><a href="javascript:;" data-id="{{ v.id }}">{{ v.brandName }}</a></li>
+  {{ /each }}
+</script>
+
+
+<script type="text/html" id="tpl">
+  {{ each rows v i }}
+  <tr>
+    <td>{{ (page-1) * size + i + 1 }}</td>
+    <td>{{ v.proName }}</td>
+    <td>{{ v.proDesc }}	</td>
+    <td>{{ v.num }}</td>
+    <td>{{ v.size }}</td>
+    <td>{{ v.statu === 1 ? "已上架" : "未上架"}}</td>
+    <td>
+      {{ if v.statu === 1 }}
+        <button class="btn btn-danger btn-sm">下架</button>
+      {{ /if }}
+      
+      {{ if v.statu !== 1 }}
+        <button class="btn btn-success btn-sm">上架</button>
+      {{ /if }}
+      
+      <button class="btn btn-primary btn-sm">编辑</button>
+    </td>
+  </tr>
+  {{ /each }}
+</script>
+
 
 <script src="lib/jquery/jquery.js"></script>
 <script src="lib/bootstrap/js/bootstrap.js"></script>
@@ -151,6 +263,7 @@
 <script src="lib/nprogress/nprogress.js"></script>
 <script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
+<script src="js/product.js"></script>
 </body>
 
 </html>

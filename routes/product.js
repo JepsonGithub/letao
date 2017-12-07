@@ -149,7 +149,7 @@ router.post("/addProduct", function (req, res) {
         updateTime: moment().format("YYYY-MM-DD HH:mm:ss"),
         num: req.body.num ? parseInt(req.body.num) : '',
         brandId: req.body.brandId ? parseInt(req.body.brandId) : ''
-    })
+    });
     Product.addProduct(product, function (err, data) {
         if (err) return res.send({"error": 403, "message": "数据库异常！"});
 
