@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+.lt_main {
+  display: flex;
+}
+// 左侧布局
+.lt_category_l {
+  flex-basis:90px;
+  position: relative;
+  overflow: hidden;
+  background-color: #f3f4f5;
+
+  a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    color: #666;
+  }
+  li.now a {
+    border-right: none;
+    background-color: #fff;
+  }
+  li:last-child a {
+    border-bottom: none;
+  }
+}
+
+// 右侧布局
+.lt_category_r {
+  position: relative;
+  flex: 1;
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .item_box {
+    width: 33%;
+  }
+
+  .item {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: block;
+    text-align: center;
+
+    img {
+      width: 60px;
+      height: 40px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
